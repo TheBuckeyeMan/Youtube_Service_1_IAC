@@ -31,7 +31,7 @@ jobs:
 
       - name: Create or Select Workspace
         run: |
-          terraform workspace select LambdaDeploy || terraform workspace new LambdaDeploy
+          terraform workspace select YoutubeService1 || terraform workspace new YoutubeService1
         working-directory: terraform
 
       - name: Terraform Apply
