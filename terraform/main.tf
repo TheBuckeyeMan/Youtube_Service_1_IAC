@@ -29,4 +29,10 @@ resource "aws_lambda_function_url" "lambda_url" {
   authorization_type = "NONE"
 }
 
-##Add in additional code for AWS Event bridge, or API Gateway here for Lambda Deployment
+#Allow AWS Event Bridge trigger
+resource "aws_lambda_permission" "allow_eventbridge_invoke" {
+  statement_id  = "AllowEventBridgeInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.api_lambda.function_name
+  principal     = "events.amazonaws.com"
+}
